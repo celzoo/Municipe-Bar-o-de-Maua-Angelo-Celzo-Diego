@@ -2,6 +2,7 @@ package program;
 import java.util.*;
 import java.util.Scanner;
 
+import control.Towncitizenlist;
 import entity.Afiliations;
 import entity.Contacts;
 import entity.Documents;
@@ -12,11 +13,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		int count=-1,condition = 4;
-		String firstName,surname,naturality,gender,degree,formation,school,intendToStudyAgain,intendedStudy,rg,cpf,uf,title,section,zone,emiter,cellphone,homeNumber,associations,syndicate,club,religion,
+		String firstName,surname,
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		naturality,gender,degree,formation,school,intendToStudyAgain,intendedStudy,rg,cpf,uf,title,section,zone,emiter,cellphone,homeNumber,associations,syndicate,club,religion,
 		adress,houseNumber,neighborhood,nameOfFather,nameOfMother,deficiency,ocupation,color,arriveDate,dependents,civilState,nacionality;
 		int day,month,year,arriveDay,arriveMonth,arriveYear;
 		
-		Towncitizen citizen = new Towncitizen(null, null, 0, 0,0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		Towncitizenlist citizen = new Towncitizenlist();
 		Scanner sc = new Scanner(System.in);
 		while(condition!=0) {
 		System.out.println("Welcome to our citizenship system to register type in 1 | to see how many registered there is type in 2 | to delete a citizen record type in 3 | to close the application type in 0");
@@ -111,7 +123,7 @@ public class Main {
 				Education education = new Education(degree, formation, school, intendToStudyAgain, intendedStudy);
 				Residency residency = new Residency(adress, houseNumber, neighborhood);
 				Towncitizen citizen1 = new Towncitizen(firstName, surname, day, month, year, naturality, gender, nameOfFather, nameOfMother, deficiency, ocupation, color,  dependents, civilState, nacionality, afiliations, contacts, documents, education, residency);
-				citizen.cadastro(citizen1,count);
+				citizen.cadastro(citizen1, count);
 				
 				}catch(InputMismatchException exception) {
 					System.out.println("Restart the programa and type in a number during the date register  ");

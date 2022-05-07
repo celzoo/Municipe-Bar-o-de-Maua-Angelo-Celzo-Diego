@@ -3,7 +3,7 @@ package entity;
 import java.util.*;
 
 import control.Control;
-public class Towncitizen extends Person implements Control{
+public class Towncitizen extends Person {
 	
 		private String nameOfFather;
 		private String nameOfMother;
@@ -43,53 +43,12 @@ public class Towncitizen extends Person implements Control{
 			this.contacts = contacts;
 			this.education = education;
 			this.residency = residency;
-			this.documents = documents;
+			this.setDocuments(documents);
 			
 		}
 
 
-		@Override
-		public int cadastro(Towncitizen citizen,int count) {
-			
-			list.add(citizen);
-			return count++;
-			
-		}
-
-
-		@Override
-		public void show(int count) {
-			int secondCounter=0;
-			while(secondCounter<=count) {
-				System.out.println(list.get(secondCounter)); 
-				secondCounter++;
-			}
-			
-			
-			
-			
-		}
-
-
-		@Override
-		public void delete(String cpf , int count) {
-			int secondCounter=0;
-			try {
-				while(secondCounter!=count) {
-					if(list.get(secondCounter).documents.getCPF().equals(cpf)) {
-						list.remove(secondCounter);
-					
-					}
 	
-					
-					secondCounter++;
-				}
-			
-			}catch(ArrayIndexOutOfBoundsException exception) {
-				System.out.println("Erro na contagem da lista");
-				
-			}
-		}
 		
 	
 			
@@ -97,7 +56,31 @@ public class Towncitizen extends Person implements Control{
 		
 		
 		public  String toString() {
-			return " Nome: " + getFirstName() + " " + getSurname() + "| CPF:"+ documents.getCPF();
+			return " Nome: " + getFirstName() + " " + getSurname() + "| CPF:"+ getDocuments().getCPF();
+		}
+
+
+
+
+
+
+
+
+
+		public Documents getDocuments() {
+			return documents;
+		}
+
+
+
+
+
+
+
+
+
+		public void setDocuments(Documents documents) {
+			this.documents = documents;
 		}
 
 
